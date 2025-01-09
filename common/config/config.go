@@ -16,6 +16,7 @@ type config struct {
 	Port     int    `json:"port"`
 	User     string `json:"user"`
 	Password string `json:"pwd"`
+	Kid      string `json:"kid"`
 }
 
 var (
@@ -31,6 +32,7 @@ var (
 	cliPort     = flag.Int("port", 8080, "webdav server port")
 	cliUser     = flag.String("user", "user", "webdav auth username")
 	cliPassword = flag.String("pwd", "123456", "webdav auth password")
+	cliKid      = flag.String("kid", "", "115 cookie kid")
 )
 
 func init() {
@@ -47,6 +49,7 @@ func init() {
 	Config.Port = *cliPort
 	Config.User = *cliUser
 	Config.Password = *cliPassword
+	Config.Kid = *cliKid
 }
 
 func load(filename string) {
